@@ -14,3 +14,23 @@ it('should be sum of all numbers in array', () => {
   );
   expect(testResult).toBe(expectedResult);
 });
+
+it('should return NAN if there is an invalid number in the provided array', () => {
+  const sampleArray = ['invalid', 2];
+
+  const testResult = add(sampleArray);
+
+  expect(testResult).toBeNaN();
+});
+
+it('should work with an array of numeric string values', () => {
+  const sampleArray = ['1', '2'];
+
+  const testResult = add(sampleArray);
+
+  const expectedResult = sampleArray.reduce(
+    (preValue, curValue) => +preValue + +curValue,
+    0
+  );
+  expect(testResult).toBe(expectedResult);
+});
