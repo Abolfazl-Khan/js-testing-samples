@@ -34,3 +34,19 @@ it('should work with an array of numeric string values', () => {
   );
   expect(testResult).toBe(expectedResult);
 });
+
+it('should return 0 if an empty array is provided', () => {
+  const sampleArray = [];
+
+  const testResult = add(sampleArray);
+
+  expect(testResult).toBe(0);
+});
+
+it('should throw an error if no value is passed to te function', () => {
+  const resultFunction = () => {
+    add();
+  };
+
+  expect(resultFunction).toThrow();
+});
