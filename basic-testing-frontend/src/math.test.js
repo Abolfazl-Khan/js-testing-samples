@@ -43,10 +43,20 @@ it('should return 0 if an empty array is provided', () => {
   expect(testResult).toBe(0);
 });
 
-it('should throw an error if no value is passed to te function', () => {
+it('should throw an error if no value is passed to the function', () => {
   const resultFunction = () => {
     add();
   };
 
   expect(resultFunction).toThrow();
+});
+
+it('should throw an error if multiple arguments are provided instead of an array', () => {
+  const firstNumber = 1;
+  const secondNumber = 2;
+  const resultFunction = () => {
+    add(firstNumber, secondNumber);
+  };
+
+  expect(resultFunction).toThrow(/numbers is not iterable/);
 });
